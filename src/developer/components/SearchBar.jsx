@@ -10,12 +10,19 @@ import Account from './Account'
 import { useState } from 'react';
 import { Hidden } from '@mui/material';
 
-export default function CustomizedInputBase({setSearchInput}) {
+export default function CustomizedInputBase({setSearchInput, alignTrue, setAlignTrue, setAlign}) {
     const [rotate, setRotate] = useState(false);
 
     const handleRotate = () => {
         setRotate(!rotate)
         handleClick();
+    }
+    const windowReload = () => {
+        window.location.reload();
+    }
+    const handleAlign = () => {
+        setAlignTrue((prev)=>!prev)
+        alignTrue ? setAlign({css: "flex-row", height: 317}) : setAlign({css: "flex-col items-center", height: 700});
     }
 
     return (
@@ -39,10 +46,10 @@ export default function CustomizedInputBase({setSearchInput}) {
                     />
                 </Paper>
                 <div className='flex mt-1 mr-5'>
-                    <IconButton type="button" sx={{ p: '10px' ,marginTop: "-10px" , height: 45}}>
+                    <IconButton type="button" sx={{ p: '10px' ,marginTop: "-10px" , height: 45}} onClick={windowReload}>
                         <RefreshIcon style={{ color: "#5C5470" }} />
                     </IconButton>
-                    <IconButton type="button" sx={{ p: '10px' ,marginTop: "-10px" , height: 45}}>
+                    <IconButton type="button" sx={{ p: '10px' ,marginTop: "-10px" , height: 45}} onClick={handleAlign}>
                         <ViewDayOutlinedIcon style={{ color: "#5C5470" }} />
                     </IconButton>
                     <Account />

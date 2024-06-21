@@ -22,22 +22,22 @@ const TakeNote = () => {
 
 return (
     <>
-        <div className='w-full flex flex-col h-60 justify-center items-center'>
-            <div className='w-2/5 flex flex-col h-40 justify-center items-center border rounded-lg'>
+        <div className='m-auto p-auto flex flex-col h-60 justify-center items-center border-solid'>
+            <div className='w-96 flex flex-col h-40 justify-center items-center border-2 border-solid rounded-lg'>
                 <input
                     ref={inputRef}
-                    className='p-2 w-full outline-none h-10'
+                    className='p-2 w-full outline-none h-10 text-xl'
                     type="text"
                     placeholder='Title'
                     name='title' />
                 <p className='w-full flex flex-col justify-center items-center h-32'>
                     <textarea
                         ref={textareaRef}
-                        className='outline-none p-2 w-full h-20 overflow-hidden'
+                        className='outline-none p-2 w-full h-20 overflow-hidden resize-none'
                         name='content'
                         placeholder='Take a Note...' />
                     <div className="w-full">
-                        <Button onClick={clearValues} variant="contained" endIcon={<SendIcon />}>
+                        <Button onClick={clearValues} variant="contained" endIcon={<SendIcon />} style={{width: 120, marginLeft: "32%"}}>
                             Add
                         </Button>
                     </div>
